@@ -1,36 +1,155 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trainers - E-Commerce Platform
+
+A modern e-commerce platform for athletic footwear built with Next.js 15, Supabase, and Stripe.
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router & Turbopack
+- **Language**: TypeScript 5
+- **Database & Auth**: Supabase
+- **Payments**: Stripe
+- **State Management**: Zustand
+- **Styling**: Tailwind CSS 4
+- **Forms**: React Hook Form + Zod validation
+
+## Features
+
+### Shopping Experience
+- Product catalog with category filtering
+- Product detail pages with size/color variants
+- Persistent shopping cart with localStorage
+- Automatic VAT calculation (20%)
+
+### Checkout & Payments
+- Stripe checkout integration
+- Support for UK and international shipping
+- Webhook handling for order creation
+- Order confirmation pages
+
+### Authentication
+- Supabase authentication (email/password, OAuth)
+- Session management via middleware
+- Protected routes
+
+### Admin Dashboard
+- Sales analytics and metrics
+- Order management with status tracking
+- Product inventory management
+- Low stock alerts
+
+### UI/UX
+- Dark/light theme toggle
+- Responsive design
+- Optimized images with Next.js Image
+
+## Project Structure
+
+```
+src/
+├── app/                  # Next.js app router pages
+│   ├── (auth)/          # Login & register
+│   ├── admin/           # Admin dashboard
+│   ├── api/             # API routes (checkout, webhooks)
+│   ├── cart/            # Shopping cart
+│   ├── checkout/        # Checkout flow
+│   └── products/        # Product catalog
+├── components/
+│   ├── layout/          # Header, footer, theme toggle
+│   ├── ui/              # Reusable UI components
+│   ├── cart/            # Cart components
+│   └── products/        # Product display components
+├── lib/
+│   ├── stripe.ts        # Stripe configuration
+│   └── supabase/        # Supabase clients
+├── stores/              # Zustand stores (cart, UI)
+└── types/               # TypeScript definitions
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18+
+- Supabase account
+- Stripe account
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd trainers
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Create `.env.local` from the example:
+   ```bash
+   cp .env.example .env.local
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Configure environment variables:
+   ```env
+   # Supabase
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   # Stripe
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+   STRIPE_SECRET_KEY=your_stripe_secret_key
+   STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   # App
+   NEXT_PUBLIC_APP_URL=http://localhost:3000
+   ```
 
-## Deploy on Vercel
+5. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. Open [http://localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server with Turbopack |
+| `npm run build` | Build for production |
+| `npm start` | Start production server |
+| `npm run lint` | Run ESLint |
+
+## API Routes
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/checkout` | POST | Create Stripe checkout session |
+| `/api/webhooks/stripe` | POST | Handle Stripe webhook events |
+| `/auth/callback` | GET | Supabase OAuth callback |
+
+## Database Schema
+
+The application expects the following Supabase tables:
+
+- **products** - Product catalog
+- **product_variants** - Size/color variants with stock
+- **categories** - Product categories
+- **orders** - Customer orders
+- **order_items** - Items within orders
+
+## Deployment
+
+This project is optimized for deployment on [Vercel](https://vercel.com):
+
+1. Push your code to GitHub
+2. Import the project in Vercel
+3. Configure environment variables
+4. Deploy
+
+## License
+
+MIT
