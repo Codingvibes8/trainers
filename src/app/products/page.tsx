@@ -143,7 +143,7 @@ const allProducts = [
     slug: "puma-rs-x-reinvention",
     price: 119.99,
     compare_at_price: 139.99,
-    images: ["https://images.unsplash.com/photo-1608379743498-63cc7ac6404c?w=800"],
+    images: ["https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800"],
     rating: 4.4,
     review_count: 156,
     category: "lifestyle",

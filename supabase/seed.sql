@@ -119,7 +119,7 @@ INSERT INTO products (id, name, slug, description, price, compare_at_price, cate
    'Bold. Chunky. Unmistakably PUMA. The RS-X brings running heritage into the future with exaggerated proportions.',
    119.99, 139.99,
    'c1000000-0000-0000-0000-000000000004',
-   ARRAY['https://images.unsplash.com/photo-1608379743498-63cc7ac6404c?w=800'],
+   ARRAY['https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800'],
    true, false, 4.4, 156);
 
 -- Insert product variants (sizes and colors)
