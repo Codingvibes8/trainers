@@ -39,7 +39,7 @@ export default function CheckoutPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
-  const { items, getSubtotal, getTax, getTotal, clearCart } = useCartStore();
+  const { items, getSubtotal, getTax, getTotal } = useCartStore();
   const { addToast } = useToast();
 
   const {

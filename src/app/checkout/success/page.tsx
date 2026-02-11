@@ -15,7 +15,7 @@ export default function CheckoutSuccessPage() {
         </h1>
         
         <p className="mx-auto mt-4 max-w-md text-lg text-slate-600 dark:text-slate-400">
-          Thank you for your purchase. We've sent a confirmation email with your order details.
+          Thank you for your purchase. We&apos;ve sent a confirmation email with your order details.
         </p>
 
         <div className="mx-auto mt-8 max-w-sm rounded-2xl bg-white p-6 shadow-sm dark:bg-slate-800">

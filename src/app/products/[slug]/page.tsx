@@ -84,7 +84,7 @@ export default function ProductDetailPage() {
         category_id: null,
         created_at: "",
         updated_at: "",
-      } as any,
+      } as unknown as Parameters<typeof addItem>[0],
       {
         ...selectedVariant,
         product_id: product.id,
